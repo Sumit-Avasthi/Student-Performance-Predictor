@@ -41,7 +41,7 @@ def evaluate_model(X_train,y_train,X_test,y_test,models,params):
             model.set_params(**gs.best_params_)
 
             model.fit(X_train,y_train)
-            
+
             y_train_pred = model.predict(X_train)
             y_test_pred = model.predict(X_test)
 
@@ -54,3 +54,11 @@ def evaluate_model(X_train,y_train,X_test,y_test,models,params):
     except Exception as ex:
         raise CustomeException(ex,sys)
 
+
+
+def load_object(file_path):
+    try:
+        with open(file_path,"rb") as f:
+            return dill.load(f)
+    except Exception as ex:
+        raise CustomeException(ex,sys)

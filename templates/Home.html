@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="container nav-container">
+
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Student Predictor
+            </div>
+
+            <!-- <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                 <li><a href="#models">Models</a></li> -->
+            <!-- </ul>  -->
+
+            <a href="{{ url_for('predict_datapoint') }}" class="nav-btn">
+                Predict Score
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container hero-container">
+
+            <div class="hero-left">
+
+                <span class="badge">
+                    AI Powered Machine Learning
+                </span>
+
+                <h1>
+                    Predict Student Performance
+                    <span>with Artificial Intelligence</span>
+                </h1>
+
+                <p>
+
+                    An intelligent machine learning system that predicts a student's mathematics score based on academic and demographic information. Fast, accurate and easy to use.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="{{ url_for('predict_datapoint') }}" class="primary-btn">
+
+                        Predict Now
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                    <!-- <a href="#features" class="secondary-btn">
+
+                        Learn More
+
+                    </a> -->
+
+                </div>
+
+            </div>
+
+            <div class="hero-right">
+
+                <div class="hero-card">
+
+                    <i class="fa-solid fa-chart-line hero-icon"></i>
+
+                    <h3>Machine Learning</h3>
+
+                    <p>
+
+                        Predict mathematics performance using trained regression models with high accuracy.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="container stats-container">
+
+            <div class="stat-box">
+                <h2>1000+</h2>
+                <p>Student Records</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>8</h2>
+                <p>Input Features</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>7+</h2>
+                <p>Regression Models</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>85%+</h2>
+                <p>Prediction Accuracy</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- More sections will be added next -->
+
+</body>
+</html>
