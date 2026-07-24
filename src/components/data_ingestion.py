@@ -8,6 +8,7 @@ from dataclasses import dataclass
 
 
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 @dataclass
 class DataIngestionConfig:
@@ -47,3 +48,10 @@ class DataIngestion:
         except Exception as ex:
             raise CustomeException(ex,sys)
         
+if __name__=="__main__":
+    obj0 = DataIngestion()
+    train_path,test_path,_=obj0.initiate_data_ingestion()
+    obj1 = DataTransformation()
+    train_arr,test_arr,_ = obj1.initiate_data_transformation(train_path,test_path)
+    obj3 = ModelTrainer()
+    print(obj3.initiate_model_trainer(train_arr,test_arr))
