@@ -11,12 +11,13 @@ app = application
 def Home():
     return render_template('Home.html')
 
-@app.route("/predict_datapoint",methods=['GET','POST'])
+# @app.route("/predict_datapoint",methods=['GET','POST'])
+@app.route("/predict_datapoint", methods=["GET", "POST"])
 def predict_datapoint():
-    if request.method == 'GET':
-        return render_template('prediction.html')
-    else :
-        # print(request.form)
+    try:
+        if request.method == "GET":
+            return render_template("prediction.html")
+
         data = CustomData(
             gender=request.form.get('gender'),
             race_ethnicity=request.form.get('race_ethnicity'),
@@ -27,12 +28,35 @@ def predict_datapoint():
             writing_score=float(request.form.get('writing_score'))
         )
 
-        pred_df=data.get_data_as_dataframe()
+        pred_df = data.get_data_as_dataframe()
         predict_pipeline = PredictPipeline()
-
         result = predict_pipeline.predict(pred_df)
 
-        return render_template("prediction.html",results=round(result[0],2))
+        return render_template("prediction.html", results=round(result[0], 2))
+
+    except Exception as e:
+        return f"Error: {e}"
+# def predict_datapoint():
+#     if request.method == 'GET':
+#         return render_template('prediction.html')
+#     else :
+#         # print(request.form)
+#         data = CustomData(
+#             gender=request.form.get('gender'),
+#             race_ethnicity=request.form.get('race_ethnicity'),
+#             parental_level_of_education=request.form.get('parental_level_of_education'),
+#             lunch=request.form.get('lunch'),
+#             test_preparation_course=request.form.get('test_preparation_course'),
+#             reading_score=float(request.form.get('reading_score')),
+#             writing_score=float(request.form.get('writing_score'))
+#         )
+
+#         pred_df=data.get_data_as_dataframe()
+#         predict_pipeline = PredictPipeline()
+
+#         result = predict_pipeline.predict(pred_df)
+
+#         return render_template("prediction.html",results=round(result[0],2))
 
 
 if __name__=="__main__":

@@ -47,3 +47,4 @@ class DataIngestion:
             )
         except Exception as ex:
             raise CustomeException(ex,sys)
+        

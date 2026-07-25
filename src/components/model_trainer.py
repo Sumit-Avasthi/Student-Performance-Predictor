@@ -121,14 +121,16 @@ class ModelTrainer:
             
             logging.info("Best Model is found After Training on Datasets")
 
-            save_object(
-                file_path=self.model_trainer_config.trained_model_file_path,
-                obj=best_model
-            )
+            
 
             best_model.fit(X_train,y_train)
 
+            save_object(
+                            file_path=self.model_trainer_config.trained_model_file_path,
+                            obj=best_model
+                        )
             y_pred = best_model.predict(X_test)
+
 
             return r2_score(y_test,y_pred)
         
