@@ -11,6 +11,13 @@ app = application
 def Home():
     return render_template('Home.html')
 
+
+import sklearn
+
+@app.route("/version")
+def version():
+    return sklearn.__version__
+
 # @app.route("/predict_datapoint",methods=['GET','POST'])
 @app.route("/predict_datapoint", methods=["GET", "POST"])
 def predict_datapoint():
