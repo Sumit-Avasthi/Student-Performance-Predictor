@@ -157,7 +157,6 @@ activemq-data/
 
 # Environments
 /.vscode
-artifacts/
 .env
 .envrc
 .venv
