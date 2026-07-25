@@ -11,7 +11,7 @@ dill==0.4.0
 matplotlib==3.7.5
 seaborn==0.13.2
 
-catboost==1.2.10
-xgboost==2.1.4
+# catboost==1.2.10
+# xgboost==2.1.4
 
 -e .
